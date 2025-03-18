@@ -36,8 +36,10 @@ dependencies {
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
 
-    // test
-    testImplementation("org.springframework.boot:spring-boot-starter-test")
+    //logger
+    implementation("org.springframework.boot:spring-boot-starter-logging") // Logback por defecto
+    implementation("org.slf4j:slf4j-api:2.0.9")
+
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
