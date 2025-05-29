@@ -23,7 +23,7 @@ class FitenssServiceImpl(
     override fun getServices(pageable: Pageable): Page<FitenessServiceResponse> {
         log.info("Getting all services available")
         val services = repository.findAll(pageable)
-        return services.map { services->services.toResponse() }
+        return services.map { it.toResponse() }
     }
 
     override fun getServiceById(id: ObjectId): FitenessServiceResponse? {

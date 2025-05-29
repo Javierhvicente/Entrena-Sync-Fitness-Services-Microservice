@@ -8,14 +8,14 @@ class FitnessServiceUpdateRequest(
     @field:Min(value = 3, message = "Minimum value for service name must be 3")
     @field:Max(value =40, message = "Maximum value for service name must be 40")
     @field:NotBlank(message = "Service full name must not be empty")
-    val name: String,
+    val name: String?,
     @field:Min(value = 1, message = "Minimum price must be 1")
     @field:Max(value = 250, message = "Maximum price must be 250")
-    val price: Double,
+    val price: Double?,
     @field:NotBlank(message = "Service description must not be empty")
     @field:Min(value = 10, message = "Minimum description characters must be 1")
     @field:Max(value = 250, message = "Maximum description characters must be 5")
-    val description: String,
+    val description: String?,
 
     val time: String?,
 
