@@ -14,7 +14,7 @@ import java.time.LocalDateTime
 @TypeAlias("FitnessServices")
 class FitnessService(
     @Id
-    val id: ObjectId?,
+    var id: ObjectId?,
 
     @field:Min(value = 3, message = "Minimum value for service name must be 3")
     @field:Max(value =40, message = "Maximum value for service name must be 40")
@@ -38,7 +38,7 @@ class FitnessService(
     val location: String?,
 
     val cratedAt: LocalDateTime = LocalDateTime.now(),
-    val updatedAt: LocalDateTime = LocalDateTime.now(),
+    var updatedAt: LocalDateTime = LocalDateTime.now(),
     val is_deleted: Boolean = false
 ) {
     fun getId(): String?{

@@ -10,9 +10,9 @@ import org.springframework.data.domain.Pageable
 
 interface IFitnessService {
     fun getServices(pageable: Pageable): Page<FitenessServiceResponse>
-    fun getServiceById(id: ObjectId): FitenessServiceResponse?
-    fun getServiceByName(name: String): FitenessServiceResponse?
+    fun getServiceById(id: ObjectId): FitenessServiceResponse
+    fun getServiceByName(name: String): FitenessServiceResponse
     fun saveService(service: FitnessServiceCreateRequest): FitenessServiceResponse
-    fun updateService(id: ObjectId, service: FitnessServiceUpdateRequest): FitenessServiceResponse?
+    fun updateService(id: ObjectId, service: FitnessServiceUpdateRequest): FitenessServiceResponse
     fun deleteService(id: ObjectId)
 }
