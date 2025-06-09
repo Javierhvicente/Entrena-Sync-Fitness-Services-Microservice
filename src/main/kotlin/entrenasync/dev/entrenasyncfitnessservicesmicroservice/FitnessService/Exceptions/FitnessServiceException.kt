@@ -1,4 +1,4 @@
-package entrenasync.dev.entrenasyncfitnessservicesmicroservice.Exceptions
+package entrenasync.dev.entrenasyncfitnessservicesmicroservice.FitnessService.Exceptions
 
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.ResponseStatus

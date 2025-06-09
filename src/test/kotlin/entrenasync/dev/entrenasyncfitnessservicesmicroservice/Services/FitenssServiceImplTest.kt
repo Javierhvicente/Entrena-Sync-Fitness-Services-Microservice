@@ -1,18 +1,17 @@
 package entrenasync.dev.entrenasyncfitnessservicesmicroservice.Services
 
-import com.mongodb.internal.bulk.UpdateRequest
-import entrenasync.dev.entrenasyncfitnessservicesmicroservice.Dto.FitnessServiceCreateRequest
-import entrenasync.dev.entrenasyncfitnessservicesmicroservice.Dto.FitnessServiceUpdateRequest
-import entrenasync.dev.entrenasyncfitnessservicesmicroservice.Exceptions.FitnessServiceException
-import entrenasync.dev.entrenasyncfitnessservicesmicroservice.Models.FitnessService
+import entrenasync.dev.entrenasyncfitnessservicesmicroservice.FitnessService.Dto.FitnessServiceCreateRequest
+import entrenasync.dev.entrenasyncfitnessservicesmicroservice.FitnessService.Dto.FitnessServiceUpdateRequest
+import entrenasync.dev.entrenasyncfitnessservicesmicroservice.FitnessService.Exceptions.FitnessServiceException
+import entrenasync.dev.entrenasyncfitnessservicesmicroservice.FitnessService.Services.FitenssServiceImpl
 import io.mockk.impl.annotations.InjectMockKs
 import io.mockk.impl.annotations.MockK
 import io.mockk.junit5.MockKExtension
 import org.bson.types.ObjectId
 import org.junit.jupiter.api.Test
-import entrenasync.dev.entrenasyncfitnessservicesmicroservice.Mappers.toEntity
-import entrenasync.dev.entrenasyncfitnessservicesmicroservice.Mappers.toResponse
-import entrenasync.dev.entrenasyncfitnessservicesmicroservice.Repositories.IFitnessServicesRepository
+import entrenasync.dev.entrenasyncfitnessservicesmicroservice.FitnessService.Mappers.toEntity
+import entrenasync.dev.entrenasyncfitnessservicesmicroservice.FitnessService.Mappers.toResponse
+import entrenasync.dev.entrenasyncfitnessservicesmicroservice.FitnessService.Repositories.FitnessServicesRepository
 import io.mockk.every
 import io.mockk.verify
 
@@ -25,7 +24,7 @@ import org.springframework.data.domain.PageRequest
 class FitenssServiceImplTest {
 
     @MockK
-    lateinit var fitnessRepository: IFitnessServicesRepository
+    lateinit var fitnessRepository: FitnessServicesRepository
 
     @InjectMockKs
     lateinit var fitnessServiceImpl: FitenssServiceImpl

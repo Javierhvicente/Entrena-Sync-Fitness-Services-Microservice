@@ -1,13 +1,12 @@
-package entrenasync.dev.entrenasyncfitnessservicesmicroservice.Services
+package entrenasync.dev.entrenasyncfitnessservicesmicroservice.FitnessService.Services
 
-import entrenasync.dev.entrenasyncfitnessservicesmicroservice.Dto.FitenessServiceResponse
-import entrenasync.dev.entrenasyncfitnessservicesmicroservice.Dto.FitnessServiceCreateRequest
-import entrenasync.dev.entrenasyncfitnessservicesmicroservice.Dto.FitnessServiceUpdateRequest
-import entrenasync.dev.entrenasyncfitnessservicesmicroservice.Exceptions.FitnessServiceException
-import entrenasync.dev.entrenasyncfitnessservicesmicroservice.Mappers.toEntity
-import entrenasync.dev.entrenasyncfitnessservicesmicroservice.Mappers.toResponse
-import entrenasync.dev.entrenasyncfitnessservicesmicroservice.Models.FitnessService
-import entrenasync.dev.entrenasyncfitnessservicesmicroservice.Repositories.IFitnessServicesRepository
+import entrenasync.dev.entrenasyncfitnessservicesmicroservice.FitnessService.Dto.FitenessServiceResponse
+import entrenasync.dev.entrenasyncfitnessservicesmicroservice.FitnessService.Dto.FitnessServiceCreateRequest
+import entrenasync.dev.entrenasyncfitnessservicesmicroservice.FitnessService.Dto.FitnessServiceUpdateRequest
+import entrenasync.dev.entrenasyncfitnessservicesmicroservice.FitnessService.Exceptions.FitnessServiceException
+import entrenasync.dev.entrenasyncfitnessservicesmicroservice.FitnessService.Mappers.toEntity
+import entrenasync.dev.entrenasyncfitnessservicesmicroservice.FitnessService.Mappers.toResponse
+import entrenasync.dev.entrenasyncfitnessservicesmicroservice.FitnessService.Repositories.FitnessServicesRepository
 import org.bson.types.ObjectId
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
@@ -21,8 +20,8 @@ import org.springframework.stereotype.Service
 @Service
 @CacheConfig(cacheNames = ["fitnessServices"])
 class FitenssServiceImpl(
-    private val repository: IFitnessServicesRepository,
-): IFitnessService {
+    private val repository: FitnessServicesRepository,
+): FitnessService {
     private val log: Logger = LoggerFactory.getLogger(FitenssServiceImpl::class.java)
     override fun getServices(pageable: Pageable): Page<FitenessServiceResponse> {
         log.info("Getting all services available")
@@ -56,7 +55,7 @@ class FitenssServiceImpl(
     @CachePut(key = "#id")
     override fun updateService(id: ObjectId, service: FitnessServiceUpdateRequest): FitenessServiceResponse {
         log.info("Updating Service wirh id $id")
-        val serviceToUpdate = repository.findById(id).orElseThrow{FitnessServiceException.FitnessServiceNotFoundException(id.toString())}
+        val serviceToUpdate = repository.findById(id).orElseThrow{ FitnessServiceException.FitnessServiceNotFoundException(id.toString())}
         val updatedService = service.toEntity(serviceToUpdate)
         return repository.save(updatedService).toResponse()
     }

@@ -1,4 +1,4 @@
-package entrenasync.dev.entrenasyncfitnessservicesmicroservice.Models
+package entrenasync.dev.entrenasyncfitnessservicesmicroservice.FitnessService.Models
 
 import jakarta.validation.constraints.Max
 import jakarta.validation.constraints.Min

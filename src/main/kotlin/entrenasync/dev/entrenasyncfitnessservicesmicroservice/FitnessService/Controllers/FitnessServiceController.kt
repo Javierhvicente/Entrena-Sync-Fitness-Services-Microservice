@@ -1,10 +1,9 @@
-package entrenasync.dev.entrenasyncfitnessservicesmicroservice.Controllers
+package entrenasync.dev.entrenasyncfitnessservicesmicroservice.FitnessService.Controllers
 
-import entrenasync.dev.entrenasyncfitnessservicesmicroservice.Dto.FitenessServiceResponse
-import entrenasync.dev.entrenasyncfitnessservicesmicroservice.Dto.FitnessServiceCreateRequest
-import entrenasync.dev.entrenasyncfitnessservicesmicroservice.Dto.FitnessServiceUpdateRequest
-import entrenasync.dev.entrenasyncfitnessservicesmicroservice.Services.FitenssServiceImpl
-import entrenasync.dev.entrenasyncfitnessservicesmicroservice.Services.IFitnessService
+import entrenasync.dev.entrenasyncfitnessservicesmicroservice.FitnessService.Dto.FitenessServiceResponse
+import entrenasync.dev.entrenasyncfitnessservicesmicroservice.FitnessService.Dto.FitnessServiceCreateRequest
+import entrenasync.dev.entrenasyncfitnessservicesmicroservice.FitnessService.Dto.FitnessServiceUpdateRequest
+import entrenasync.dev.entrenasyncfitnessservicesmicroservice.FitnessService.Services.FitnessService
 import jakarta.validation.Valid
 import org.bson.types.ObjectId
 import org.springframework.data.domain.Page
@@ -15,7 +14,7 @@ import org.springframework.web.bind.annotation.*
 @RestController
 @RequestMapping("/services")
 class FitnessServiceController(
-    private val fitenssServiceImpl: IFitnessService
+    private val fitenssServiceImpl: FitnessService
 ) {
     @GetMapping
     fun getAllServices():ResponseEntity<Page<FitenessServiceResponse>>{

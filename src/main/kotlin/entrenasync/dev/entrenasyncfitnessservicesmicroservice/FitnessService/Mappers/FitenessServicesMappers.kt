@@ -1,13 +1,13 @@
-package entrenasync.dev.entrenasyncfitnessservicesmicroservice.Mappers
+package entrenasync.dev.entrenasyncfitnessservicesmicroservice.FitnessService.Mappers
 
-import entrenasync.dev.entrenasyncfitnessservicesmicroservice.Dto.FitenessServiceResponse
-import entrenasync.dev.entrenasyncfitnessservicesmicroservice.Dto.FitnessServiceCreateRequest
-import entrenasync.dev.entrenasyncfitnessservicesmicroservice.Dto.FitnessServiceUpdateRequest
-import entrenasync.dev.entrenasyncfitnessservicesmicroservice.Models.FitnessService
+import entrenasync.dev.entrenasyncfitnessservicesmicroservice.FitnessService.Dto.FitenessServiceResponse
+import entrenasync.dev.entrenasyncfitnessservicesmicroservice.FitnessService.Dto.FitnessServiceCreateRequest
+import entrenasync.dev.entrenasyncfitnessservicesmicroservice.FitnessService.Dto.FitnessServiceUpdateRequest
+import entrenasync.dev.entrenasyncfitnessservicesmicroservice.FitnessService.Models.FitnessService
 import org.bson.types.ObjectId
 import java.time.LocalDateTime
 
-fun FitnessService.toResponse(): FitenessServiceResponse{
+fun FitnessService.toResponse(): FitenessServiceResponse {
     return FitenessServiceResponse(
         id = id.toString(),
         name = name,
@@ -22,7 +22,7 @@ fun FitnessService.toResponse(): FitenessServiceResponse{
     )
 }
 
-fun FitnessServiceCreateRequest.toEntity(): FitnessService{
+fun FitnessServiceCreateRequest.toEntity(): FitnessService {
     return FitnessService(
         id = ObjectId.get(),
         name = name,
@@ -33,7 +33,7 @@ fun FitnessServiceCreateRequest.toEntity(): FitnessService{
     )
 }
 
-fun FitnessServiceUpdateRequest.toEntity(oldService: FitnessService): FitnessService{
+fun FitnessServiceUpdateRequest.toEntity(oldService: FitnessService): FitnessService {
     return FitnessService(
         id = oldService.id,
         name = name?: oldService.name,

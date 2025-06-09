@@ -3,18 +3,17 @@ package entrenasync.dev.entrenasyncfitnessservicesmicroservice.Controllers
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.ninjasquad.springmockk.MockkBean
-import entrenasync.dev.entrenasyncfitnessservicesmicroservice.Dto.FitenessServiceResponse
-import entrenasync.dev.entrenasyncfitnessservicesmicroservice.Dto.FitnessServiceCreateRequest
-import entrenasync.dev.entrenasyncfitnessservicesmicroservice.Dto.FitnessServiceUpdateRequest
-import entrenasync.dev.entrenasyncfitnessservicesmicroservice.Mappers.toEntity
-import entrenasync.dev.entrenasyncfitnessservicesmicroservice.Mappers.toResponse
-import entrenasync.dev.entrenasyncfitnessservicesmicroservice.Services.IFitnessService
+import entrenasync.dev.entrenasyncfitnessservicesmicroservice.FitnessService.Dto.FitnessServiceCreateRequest
+import entrenasync.dev.entrenasyncfitnessservicesmicroservice.FitnessService.Dto.FitnessServiceUpdateRequest
+import entrenasync.dev.entrenasyncfitnessservicesmicroservice.FitnessService.Controllers.FitnessServiceController
+import entrenasync.dev.entrenasyncfitnessservicesmicroservice.FitnessService.Mappers.toEntity
+import entrenasync.dev.entrenasyncfitnessservicesmicroservice.FitnessService.Mappers.toResponse
+import entrenasync.dev.entrenasyncfitnessservicesmicroservice.FitnessService.Services.FitnessService
 import io.mockk.every
 import io.mockk.verify
 import org.bson.types.ObjectId
 import org.junit.jupiter.api.Test
 
-import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.extension.ExtendWith
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest
@@ -42,7 +41,7 @@ class FitnessServiceControllerTest {
     private lateinit var objectMapper: ObjectMapper
 
     @MockkBean
-    private lateinit var fitnessService: IFitnessService
+    private lateinit var fitnessService: FitnessService
 
     private val sampleId = ObjectId.get()
     private val sampleCreaeRequest = FitnessServiceCreateRequest(
