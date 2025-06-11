@@ -3,6 +3,7 @@ package entrenasync.dev.entrenasyncfitnessservicesmicroservice.FitnessPlan.Mappe
 import entrenasync.dev.entrenasyncfitnessservicesmicroservice.FitnessPlan.Dto.FitnessPlanCreateRequest
 import entrenasync.dev.entrenasyncfitnessservicesmicroservice.FitnessPlan.Dto.FitnessPlanResponse
 import entrenasync.dev.entrenasyncfitnessservicesmicroservice.FitnessPlan.Dto.FitnessPlanUpdateRequest
+import entrenasync.dev.entrenasyncfitnessservicesmicroservice.FitnessPlan.Dto.Types
 import entrenasync.dev.entrenasyncfitnessservicesmicroservice.FitnessPlan.Models.FitnessPlan
 import org.bson.types.ObjectId
 import java.time.LocalDate
@@ -15,23 +16,25 @@ fun FitnessPlan.toResponse(): FitnessPlanResponse {
         clientId = clientId,
         serviceId = serviceId,
         createdAt = createdAt.toString(),
-        durationInDays = durationInDays ?: 0,
         renovation = renovation?.toString(),
     )
 }
 
 fun FitnessPlanCreateRequest.toEntity(): FitnessPlan {
+    val createdAt = LocalDate.now()
+    val renovationDate = if (type == Types.MENSUAL) createdAt.plusMonths(1) else null
+
     return FitnessPlan(
         id = ObjectId.get(),
         description = description,
         price = price,
         clientId = clientId,
         serviceId = serviceId,
-        durationInDays = durationInDays,
-        renovation = renovation?.let { LocalDate.parse(it) },
-        createdAt = LocalDate.now()
+        renovation = renovationDate,
+        createdAt = createdAt
     )
 }
+
 
 fun FitnessPlanUpdateRequest.toEntity(existingPlan: FitnessPlan): FitnessPlan {
     return FitnessPlan(
@@ -42,7 +45,6 @@ fun FitnessPlanUpdateRequest.toEntity(existingPlan: FitnessPlan): FitnessPlan {
         createdAt = existingPlan.createdAt,
         price = this.price ?: existingPlan.price,
         renovation = this.renovation?.let { LocalDate.parse(it) } ?: existingPlan.renovation,
-        durationInDays = this.durationInDays ?: existingPlan.durationInDays,
-        is_deleted = this.isDeleted ?: existingPlan.is_deleted
+        isDeleted = this.isDeleted ?: existingPlan.isDeleted
     )
 }

@@ -9,6 +9,5 @@ interface FitnessPlanService {
     fun getServicesByClientId(clientId: String): List<FitnessPlanResponse>
     fun createServicePlan(servicePlan: FitnessPlanCreateRequest): FitnessPlanResponse
     fun updateServicePlan(id: ObjectId, servicePlan: FitnessPlanUpdateRequest): FitnessPlanResponse
-    fun deleteServicePlan(id: ObjectId)
-    fun deleteServicePlanHard(id: ObjectId)
+    fun deleteServicePlan(id: String)
 }

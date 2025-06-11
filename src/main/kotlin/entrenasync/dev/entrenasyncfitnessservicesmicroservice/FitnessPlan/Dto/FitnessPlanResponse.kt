@@ -8,6 +8,5 @@ data class FitnessPlanResponse(
     val description: String,
     val createdAt: String,
     val renovation: String?,
-    val durationInDays: Int? = null,
     val isDeleted: Boolean = false
 )

@@ -7,6 +7,7 @@ import org.bson.types.ObjectId
 import org.springframework.data.annotation.Id
 import org.springframework.data.annotation.TypeAlias
 import org.springframework.data.mongodb.core.mapping.Document
+import org.springframework.data.mongodb.core.mapping.Field
 import java.time.LocalDate
 
 @Document("FitnessPlans")
@@ -34,9 +35,7 @@ class FitnessPlan(
 
     val renovation: LocalDate?,
 
-    val durationInDays: Int? = null,
-
-    var is_deleted: Boolean = false
+    var isDeleted: Boolean = false
 ) {
 
 
