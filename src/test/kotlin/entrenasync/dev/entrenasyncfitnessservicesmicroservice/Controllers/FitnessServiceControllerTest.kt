@@ -3,6 +3,7 @@ package entrenasync.dev.entrenasyncfitnessservicesmicroservice.Controllers
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.ninjasquad.springmockk.MockkBean
+import entrenasync.dev.entrenasyncfitnessservicesmicroservice.FitnessPlan.Dto.Types
 import entrenasync.dev.entrenasyncfitnessservicesmicroservice.FitnessService.Dto.FitnessServiceCreateRequest
 import entrenasync.dev.entrenasyncfitnessservicesmicroservice.FitnessService.Dto.FitnessServiceUpdateRequest
 import entrenasync.dev.entrenasyncfitnessservicesmicroservice.FitnessService.Controllers.FitnessServiceController
@@ -49,7 +50,8 @@ class FitnessServiceControllerTest {
         price = 20.0,
         description = "SampleDescription",
         time = "3600",
-        location = "SampleLocation"
+        location = "SampleLocation",
+        type = Types.MENSUAL
     )
 
     private val sampleEntity by lazy {

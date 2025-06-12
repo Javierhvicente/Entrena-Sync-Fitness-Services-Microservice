@@ -1,5 +1,6 @@
 package entrenasync.dev.entrenasyncfitnessservicesmicroservice.Services
 
+import entrenasync.dev.entrenasyncfitnessservicesmicroservice.FitnessPlan.Dto.Types
 import entrenasync.dev.entrenasyncfitnessservicesmicroservice.FitnessService.Dto.FitnessServiceCreateRequest
 import entrenasync.dev.entrenasyncfitnessservicesmicroservice.FitnessService.Dto.FitnessServiceUpdateRequest
 import entrenasync.dev.entrenasyncfitnessservicesmicroservice.FitnessService.Exceptions.FitnessServiceException
@@ -35,7 +36,8 @@ class FitenssServiceImplTest {
         price = 20.0,
         description = "SampleDescription",
         time = "3600",
-        location = "SampleLocation"
+        location = "SampleLocation",
+        type = Types.ÚNICO
     )
 
     private val sampleEntity by lazy {

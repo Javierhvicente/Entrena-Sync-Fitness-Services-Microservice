@@ -17,6 +17,12 @@ import java.time.LocalDate
 @Service
 class FitnessPlanServiceImpl(private val fitnessPlanRepository: FitnessPlanRepository): FitnessPlanService {
     private val log: Logger = LoggerFactory.getLogger(FitenssServiceImpl::class.java)
+    override fun getAllServicePlans(): List<FitnessPlanResponse> {
+        log.info("Getting all fitness plans")
+        val services = fitnessPlanRepository.findAll()
+        return services.map { it.toResponse() }
+    }
+
     override fun getServicesByClientId(clientId: String): List<FitnessPlanResponse> {
         log.info("Getting fitness plans for client with id: $clientId")
         val services = fitnessPlanRepository.findByClientId(clientId)

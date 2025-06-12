@@ -25,6 +25,8 @@ class FitenessServiceResponse(
     @field:Size(min = 10, max = 250, message = "Description must be between 10 and 250 characters")
     val description: String,
 
+    val type: String,
+
     val time: String?,
 
     @field:Size(min = 5, max = 100, message = "location must be between 5 and 100 characters")

@@ -1,5 +1,6 @@
 package entrenasync.dev.entrenasyncfitnessservicesmicroservice.FitnessService.Dto
 
+import entrenasync.dev.entrenasyncfitnessservicesmicroservice.FitnessPlan.Dto.Types
 import jakarta.validation.constraints.Max
 import jakarta.validation.constraints.Min
 import jakarta.validation.constraints.NotBlank
@@ -19,6 +20,7 @@ class FitnessServiceCreateRequest(
     val description: String,
 
     val time: String?,
+    val type: Types,
 
     @field:Size(min = 5, max = 100, message = "Location must be between 5 and 100 characters")
     val location: String?

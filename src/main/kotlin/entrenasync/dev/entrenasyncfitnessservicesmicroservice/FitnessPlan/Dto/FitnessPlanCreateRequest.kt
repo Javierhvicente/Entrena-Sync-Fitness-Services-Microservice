@@ -16,6 +16,6 @@ data class FitnessPlanCreateRequest(
 )
 
 enum class Types {
-        UNIQUE,
+        ÚNICO,
         MENSUAL
 }

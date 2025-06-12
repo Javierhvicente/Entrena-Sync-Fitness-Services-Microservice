@@ -1,5 +1,6 @@
 package entrenasync.dev.entrenasyncfitnessservicesmicroservice.FitnessService.Models
 
+import entrenasync.dev.entrenasyncfitnessservicesmicroservice.FitnessPlan.Dto.Types
 import jakarta.validation.constraints.Max
 import jakarta.validation.constraints.Min
 import jakarta.validation.constraints.NotBlank
@@ -32,6 +33,8 @@ class FitnessService(
     val description: String,
 
     val time: String?,
+
+    val type: Types,
 
     @field:Min(value = 5, message = "Minimum location characters must be 5")
     @field:Max(value = 100, message = "Maximum location characters must be 100")

@@ -6,6 +6,7 @@ import entrenasync.dev.entrenasyncfitnessservicesmicroservice.FitnessPlan.Dto.Fi
 import org.bson.types.ObjectId
 
 interface FitnessPlanService {
+    fun getAllServicePlans(): List<FitnessPlanResponse>
     fun getServicesByClientId(clientId: String): List<FitnessPlanResponse>
     fun createServicePlan(servicePlan: FitnessPlanCreateRequest): FitnessPlanResponse
     fun updateServicePlan(id: ObjectId, servicePlan: FitnessPlanUpdateRequest): FitnessPlanResponse

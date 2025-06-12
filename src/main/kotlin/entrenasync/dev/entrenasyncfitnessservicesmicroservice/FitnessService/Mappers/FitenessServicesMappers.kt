@@ -18,6 +18,7 @@ fun FitnessService.toResponse(): FitenessServiceResponse {
         avatar = avatar,
         cratedAt = cratedAt,
         updatedAt = updatedAt,
+        type = type.toString(),
         is_deleted = is_deleted
     )
 }
@@ -30,6 +31,7 @@ fun FitnessServiceCreateRequest.toEntity(): FitnessService {
         price = price,
         time = time,
         location = location,
+        type = type,
     )
 }
 
@@ -41,6 +43,7 @@ fun FitnessServiceUpdateRequest.toEntity(oldService: FitnessService): FitnessSer
         price = price?: oldService.price,
         time = time?: oldService.time,
         location = location?: oldService.location,
+        type = oldService.type,
         updatedAt = LocalDateTime.now()
     )
 }

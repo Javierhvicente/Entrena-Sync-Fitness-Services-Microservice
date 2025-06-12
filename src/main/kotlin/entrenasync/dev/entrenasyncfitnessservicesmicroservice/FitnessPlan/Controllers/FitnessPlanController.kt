@@ -14,6 +14,10 @@ import org.springframework.web.bind.annotation.*
 @RequestMapping("/services/plans")
 class FitnessPlanController(private val fitnessPlanService: FitnessPlanService) {
 
+    @GetMapping
+    fun getAllServicePlans(): ResponseEntity<List<FitnessPlanResponse>> {
+        return ResponseEntity.ok(fitnessPlanService.getAllServicePlans())
+    }
     @RequestMapping("/{clientId}")
     fun getServicesByClientId(@PathVariable clientId: String): ResponseEntity<List<FitnessPlanResponse>> {
         return ResponseEntity.ok(fitnessPlanService.getServicesByClientId(clientId))
